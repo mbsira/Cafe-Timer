@@ -1,0 +1,346 @@
+    :root {
+      --bg-1: #473626;
+      --bg-2: #2c1d0b;
+      --bg-3: #1a1004;
+      --logo-bg: #57412d;
+      --logo-border: #8b745f;
+      --container-bg: #513c29;
+      --container-shadow: #2f2217;
+      --title-color: rgb(240, 235, 235);
+      --desc-color: rgb(211, 201, 201);
+      --dotted-color: #686868;
+      --opt-bg: #372617;
+      --opt-hover-border: #c09c80;
+      --footer-color: rgb(125, 125, 125);
+      --icon-color: #f0ebeb;
+      --transition-speed: 0.5s;
+    }
+
+    body.light-theme {
+      --bg-1: #f3edf0;
+      --bg-2: #d99b89;
+      --bg-3: #f3edf0;
+      --logo-bg: #fff3df;
+      --logo-border: #d99b89;
+      --container-bg: #fff8ee;
+      --container-shadow: #d8c3a1;
+      --title-color: rgb(60, 45, 30);
+      --desc-color: rgb(110, 90, 65);
+      --dotted-color: #c9b393;
+      --opt-bg: #d99b89;
+      --opt-hover-border: #b98a4f;
+      --footer-color: rgb(150, 130, 105);
+      --icon-color: #5a4222;
+    }
+
+    body {
+      background: linear-gradient(to right, var(--bg-1), var(--bg-2), var(--bg-3));
+      transition: background var(--transition-speed) ease, color var(--transition-speed) ease;
+      margin: 0;
+      min-height: 100vh;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      padding: 10px 20px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-size: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-weight: 400;
+      background-color: var(--logo-bg);
+      padding: 6px 15px;
+      margin: 10px;
+      font-size: 16px;
+      text-align: center;
+      border-radius: 30px;
+      border: 2px var(--logo-border) solid;
+      transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+      color: var(--title-color);
+    }
+
+    .theme-toggle {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px;
+      padding: 0;
+    }
+
+    .theme-toggle .icon {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      width: 24px;
+      height: 24px;
+      color: var(--icon-color);
+      transition:
+        opacity var(--transition-speed) ease,
+        transform var(--transition-speed) ease;
+    }
+
+    /* Moon shown by default (dark theme) */
+    .icon-moon {
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+    }
+
+    .icon-sun {
+      opacity: 0;
+      transform: rotate(-90deg) scale(0.5);
+    }
+
+    /* Light theme swaps them */
+    body.light-theme .icon-moon {
+      opacity: 0;
+      transform: rotate(90deg) scale(0.5);
+    }
+
+    body.light-theme .icon-sun {
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+    }
+
+    .container {
+      margin: 0 auto;
+      height: 470px;
+      max-width: 280px;
+      text-align: center;
+      border-radius: 10px;
+      padding: 26px 30px;
+      background-color: var(--container-bg);
+      font-family: Roboto, sans-serif;
+      align-items: center;
+      box-shadow: 0px 0px 10px 2px var(--container-shadow);
+      justify-content: center;
+      margin-top: 100px;
+      text-align: center;
+      transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    }
+
+    .title {
+      font-size: 25px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+      font-weight: 400;
+      word-spacing: 5px;
+      color: var(--title-color);
+      margin-top: 0;
+      transition: color var(--transition-speed) ease;
+    }
+
+    .description {
+      font-size: 14px;
+      color: var(--desc-color);
+      margin: 0;
+      word-spacing: 5px;
+      padding: 0;
+      transition: color var(--transition-speed) ease;
+    }
+
+    .dotted-line {
+      width: 100%;
+      height: 10px;
+      gap: 10px;
+      border-bottom: 2px dotted var(--dotted-color);
+      margin: 10px 0;
+      transition: border-color var(--transition-speed) ease;
+    }
+
+    .bottom-dotted-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60%;
+      height: 10px;
+      border-bottom: 5px dotted var(--dotted-color);
+      margin: 10px auto;
+      gap: 100px;
+      transition: border-color var(--transition-speed) ease;
+    }
+
+    .timer {
+      font-size: 40px;
+      color: var(--title-color);
+      transition: color var(--transition-speed) ease;
+    }
+
+    .opt-wrapper {
+      display: flex;
+      margin: 0;
+      border-radius: 5px;
+      gap: 8px;
+      flex-direction: column;
+      overflow: hidden;
+      text-align: left;
+    }
+
+    .opt-wrapper .option {
+      border: 2px solid transparent;
+      padding: 18px 20px;
+      color: var(--title-color);
+      font-size: 15px;
+      letter-spacing: 1px;
+      border-radius: 8px;
+      background-color: var(--opt-bg);
+      cursor: pointer;
+      max-height: 80px;
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      overflow: hidden;
+      transition:
+        opacity 0.35s ease,
+        transform 0.35s ease,
+        max-height 0.35s ease,
+        margin 0.35s ease,
+        padding 0.35s ease,
+        border-color 0.3s ease,
+        background-color var(--transition-speed) ease,
+        color var(--transition-speed) ease;
+    }
+
+    .opt-wrapper .option:hover {
+      opacity: 0.7;
+      border-color: var(--opt-hover-border);
+    }
+
+    /* the two options NOT picked collapse away smoothly */
+    .opt-wrapper .option.hide {
+      opacity: 0;
+      transform: translateY(-12px) scale(0.9);
+      max-height: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin: 0;
+      pointer-events: none;
+    }
+
+    .option p {
+      margin: 5px 0 0 0;
+      word-spacing: 4px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-size: 11.5px;
+    }
+
+    /* whole options list fades out once a brew is chosen */
+    .opt-wrapper.collapsed {
+      opacity: 0;
+      max-height: 0;
+      pointer-events: none;
+    }
+
+    .active-session {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      transform: translateY(10px) scale(0.95);
+      max-height: 0;
+      overflow: hidden;
+      transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease;
+    }
+
+    .active-session.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      max-height: 300px;
+    }
+
+    .active-session .brew-icon {
+      font-size: 48px;
+      line-height: 1;
+      transition: transform 0.3s ease;
+    }
+
+    .active-session .brew-icon.pulse {
+      animation: sip 2.2s ease-in-out infinite;
+    }
+
+    @keyframes sip {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-4px);
+      }
+    }
+
+    .active-session .brew-name {
+      color: var(--title-color);
+      font-size: 16px;
+      letter-spacing: 1px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    .control-row {
+      display: flex;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .control-row button {
+      flex: 1;
+      border: none;
+      padding: 14px 10px;
+      color: var(--title-color);
+      font-size: 13px;
+      letter-spacing: 1px;
+      border-radius: 8px;
+      background-color: var(--opt-bg);
+      cursor: pointer;
+      font-family: inherit;
+      transition: opacity 0.2s ease, border-color 0.2s ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+      border: 2px solid transparent;
+    }
+
+    .control-row button:hover {
+      opacity: 0.7;
+      border-color: var(--opt-hover-border);
+    }
+
+    footer p {
+      text-align: center;
+      font-size: 12px;
+      word-spacing: 5px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      margin: 40px;
+      letter-spacing: 1px;
+      color: var(--footer-color);
+      transition: color var(--transition-speed) ease;
+    }
+
+    .done-flash {
+      animation: flashPulse 0.5s ease-in-out 3;
+    }
+
+    @keyframes flashPulse {
+
+      0%,
+      100% {
+        box-shadow: 0px 0px 10px 2px var(--container-shadow);
+      }
+
+      50% {
+        box-shadow: 0px 0px 25px 8px var(--opt-hover-border);
+      }
+    }
